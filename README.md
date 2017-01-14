@@ -1,2 +1,2 @@
-# chiron_client
-Hack Arizona 2017 - Client Side Repo
+# front_end_template
+Template for front end development
