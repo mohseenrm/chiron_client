@@ -2,7 +2,9 @@
 @import 'flex';
 @import 'fonts';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-$fonts: 'Source Sans Pro',
+@import url('https://fonts.googleapis.com/css?family=Nunito:600');
+$fonts: 'Nunito',
+'Source Sans Pro',
 serif;
 #base-wrapper {
     height: 100%;
@@ -21,19 +23,22 @@ serif;
 #logo-wrapper {
     @include flexbox;
     width: 100%;
-    height: 40%;
+    height: 50%;
     background: url('../../images/logo2.svg');
     background-repeat: no-repeat;
     background-size: 25%;
     background-position-x: center;
-    background-position-y: center;
-    opacity: 0.75;
+    background-position-y: 20%;
+    opacity: 0.85;
+    align-items: center;
+    justify-content: center;
+
 }
 
 #bottom-wrapper {
     @include flexbox;
     width: 100%;
-    height: 60%;
+    height: 50%;
     align-items: center;
 }
 
@@ -92,16 +97,12 @@ serif;
     position: relative;
     color: #425462;
     background: rgb(191, 210, 85);
-
     // background: -moz-linear-gradient(-45deg, rgb(191, 210, 85) 0%, rgb(142, 185, 42) 50%, rgb(114, 170, 0) 51%, rgb(158, 203, 45) 100%);
     // background: -webkit-linear-gradient(-45deg, rgb(191, 210, 85) 0%, rgb(142, 185, 42) 50%, rgb(114, 170, 0) 51%, rgb(158, 203, 45) 100%);
     // background: linear-gradient(135deg, rgb(191, 210, 85) 0%, rgb(142, 185, 42) 50%, rgb(114, 170, 0) 51%, rgb(158, 203, 45) 100%);
-
     background: -moz-linear-gradient(-45deg, rgb(179, 55, 55) 0%, rgb(171, 33, 33) 50%, rgb(119, 23, 23) 51%, rgb(102, 19, 19) 100%);
     background: -webkit-linear-gradient(-45deg, rgb(179, 55, 55) 0%, rgb(171, 33, 33) 50%, rgb(119, 23, 23) 51%, rgb(102, 19, 19) 100%);
     background: linear-gradient(135deg, rgb(179, 55, 55) 0%, rgb(171, 33, 33) 50%, rgb(119, 23, 23) 51%, rgb(102, 19, 19) 100%);
-
-
     opacity: 0;
     position: absolute;
     z-index: 15;
@@ -113,7 +114,7 @@ serif;
     transition: opacity 0.5s ease;
 }
 
-.fa-2x{
+.fa-2x {
     font-size: 6rem;
 }
 
@@ -164,7 +165,6 @@ serif;
     // -o-animation: pulse .6s 1 ease-in-out;
     // -webkit-animation: pulse .6s 1 ease-in-out;
     // animation: pulse .6s 1 ease-in-out;
-
     -moz-animation: pulse .6s infinite;
     -o-animation: pulse .6s infinite;
     -webkit-animation: pulse .6s infinite;
@@ -262,4 +262,10 @@ serif;
     100% {
         transform: scale(1, 1);
     }
+}
+
+#header {
+    font-size: 4rem;
+    color: #fff;
+    margin-top: 22%;
 }
