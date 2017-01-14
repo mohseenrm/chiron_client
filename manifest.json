@@ -1,8 +1,16 @@
 {
-    "name": "chiron",
+    "name": "Chiron - Personal Healthcare Companion",
     "short_name": "chiron",
     "description": "Personal Healthcare companion",
     "lang": "en-US",
+    "theme_color": "#060608",
+    "icons": [
+      {
+        "src": "images/logo2.png",
+        "sizes": "156x156",
+        "type": "image/png"
+      }
+    ],
     "start_url": "/index.html",
     "display": "fullscreen",
     "orientation": "portrait",
@@ -16,5 +24,4 @@
       }
     },
     "type": "privileged"
-  }
 }
