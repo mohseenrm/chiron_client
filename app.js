@@ -22,7 +22,7 @@ var server = http.createServer(function (req, res) {
                 log('Received task ' + req.headers['x-aws-sqsd-taskname'] + ' scheduled at ' + req.headers['x-aws-sqsd-scheduled-at']);
             }
 
-            res.writeHead(200, 'OK', {'Content-Type': 'text/plain'});
+            res.writeHead(200, 'OK', {'Content-Type': 'text/html'});
             res.end();
         });
     } else {
