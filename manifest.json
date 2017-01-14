@@ -5,5 +5,16 @@
     "lang": "en-US",
     "start_url": "/index.html",
     "display": "fullscreen",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "default_locale": "en",
+    "permissions": {
+      "audio-capture" : {
+        "description" : "Audio capture"
+      },
+      "speech-recognition" : {
+        "description" : "Speech recognition"
+      }
+    },
+    "type": "privileged"
+  }
 }
