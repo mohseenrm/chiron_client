@@ -1,7 +1,7 @@
 {
-  "name": "Project_name",
+  "name": "Chiron",
   "version": "0.0.1",
-  "description": "Project_description",
+  "description": "Personal healthcare companion",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "https",
-    "url": "https://github.com/mohseenrm/front_end_template/tree/master"
+    "url": "https://github.com/mohseenrm/chiron_client"
   },
   "keywords": [
     "website"
@@ -18,9 +18,9 @@
   "author": "Mohseen Mukaddam",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mohseenrm/front_end_template/issues"
+    "url": "https://github.com/mohseenrm/chiron_client/issues"
   },
-  "homepage": "https://github.com/mohseenrm/front_end_template/issues#readme",
+  "homepage": "https://github.com/mohseenrm/chiron_client/#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
