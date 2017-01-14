@@ -100,6 +100,8 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         const last = event.results.length - 1,
             speechToText = event.results[last][0].transcript;
         
+        document.getElementById('hint-text').innerHTML = speechToText;
+        
         console.log(`Color recieved: ${speechToText}`);
         console.log('Confidence: ' + event.results[0][0].confidence);
     };
