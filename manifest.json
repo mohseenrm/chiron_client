@@ -1,0 +1,8 @@
+{
+  "name": "chiron",
+  "short_name": "chiron",
+  "description": "Personal Healthcare companion",
+  "lang": "en-US",
+  "start_url": "/",
+  "display": "standalone"
+}
