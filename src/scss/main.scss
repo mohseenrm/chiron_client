@@ -41,6 +41,7 @@ serif;
     height: 50%;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -272,6 +273,7 @@ serif;
 }
 
 #hint-text{
+    margin-top: 10%;
     font-size: 1.5rem;
     color: #fff;
     font-weight: 400;
