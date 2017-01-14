@@ -98,9 +98,9 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         // property of the SpeechRecognitionAlternative object
 
         const last = event.results.length - 1,
-            color = event.results[last][0].transcript;
+            speechToText = event.results[last][0].transcript;
         
-        console.log(`Color recieved: ${color}`);
+        console.log(`Color recieved: ${speechToText}`);
         console.log('Confidence: ' + event.results[0][0].confidence);
     };
 
@@ -113,4 +113,5 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     recognition.onerror = (e) => {
         console.log(e);
     }
+
 })();
