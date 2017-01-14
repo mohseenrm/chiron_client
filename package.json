@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp build",
-    "build:watch": "babel -w src/js/ -d dist/js/ -s"
+    "build:watch": "babel -w src/js/ -d dist/js/ -s",
+    "start": "node app.js"
   },
+  "private": true,
   "repository": {
     "type": "https",
     "url": "https://github.com/mohseenrm/chiron_client"
