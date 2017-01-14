@@ -1,8 +1,37 @@
 @import 'reset';
 @import 'flex';
 @import 'fonts';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+$fonts: 'Source Sans Pro',
+serif;
+#base-wrapper {
+    height: 100%;
+    width: 100%;
+    @include flexbox;
+}
 
-h1{
-    font-size: 6rem;
-    color: #ffff00;
+#mother-wrapper {
+    @extend #base-wrapper;
+    // height: 100%;
+    background: -webkit-linear-gradient(-1deg, rgb(14, 54, 77), rgb(6, 6, 8));
+    background: linear-gradient(-1deg, rgb(14, 54, 77), rgb(6, 6, 8));
+
+    flex-direction: column;
+
+}
+#logo-wrapper{
+    @include flexbox;
+    width: 100%;
+    height: 40%;
+    background: url('../../images/logo2.svg');
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position-x: center;
+    background-position-y: center;
+    opacity: 0.75;
+}
+#bottom-wrapper{
+    @include flexbox;
+    width: 100%;
+    height: 60%;
 }
