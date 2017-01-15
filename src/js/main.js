@@ -99,8 +99,9 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         console.log(`sids: ${sids}`);
 
         const payload = generatePayload(sids);
-        console.log(JSON.stringify(payload));
+        console.log('Payload data: ' + JSON.stringify(payload));
 
+        makeAjaxCall(payload);
         // console.log(`Color recieved: ${speechToText}`);
         // console.log('Confidence: ' + event.results[0][0].confidence);
     };
@@ -1386,5 +1387,28 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
             return payload;
         }
     };
-
+    const makeAjaxCall = (payload) => {
+        const url1 = "https://api.infermedica.com/v2/diagnosis";
+        $.ajax({
+            type: "POST",
+            url: url1,
+            headers: {
+                "App-Id": "7a7139ff",
+                "App-Key": "f7754baf7ecdc339eca07ac15619e12b",
+                "Content-Type": "application/json"
+            },
+            data: JSON.stringify(payload),
+            success: function (data){
+                console.log(data.conditions[0].name);
+                console.log(data);
+                // for(var i=0;i<data.length;i++)
+                // {
+                //   var obj = new Object();
+                //   obj = data[i].conditions[0].name;
+                //   console.log(obj);
+                // }
+            },
+            dataType: 'json'
+        });
+    };
 })();
