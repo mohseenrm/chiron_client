@@ -3,14 +3,47 @@
 const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList,
     SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+/**
+* @function addClass
+* @param  {element} element      Element whose class name needs to be altered
+* @param  {String } newClassName Class Name
+* @return None
+*/
+const addClass = (element, newClassName) => {
+    if (element !== undefined && newClassName !== undefined) {
+        let classNames = element.className;
+        if (!classNames.includes(newClassName)) {
+            element.className += ` ${newClassName}`;
+        }
+    }
+    return;
+};
+
+/**
+* @function removeClass
+* @param  {element} element      Element whose class name needs to be altered
+* @param  {String } delClassName Class Name
+* @return None
+*/
+const removeClass = (element, delClassName) => {
+    if (element !== undefined && delClassName !== undefined) {
+        if (element.className.includes(delClassName)) {
+            element.className = element
+                .className
+                .replace(new RegExp('(?:^|\\s)' + delClassName + '(?:\\s|$)'), '');
+        }
+    }
+    return;
+};
 
 (() => {
     const toggle = (element) => {
-        if(element.style.display !== 'none')
+        if (element.style.display !== 'none') 
             element.style.display = 'none';
-        else
+        else 
             element.style.display = 'flex';
-    };
+        }
+    ;
     const overlayWindow = document.getElementById('overlay');
     toggle(overlayWindow);
 
@@ -78,17 +111,21 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     recognition.maxAlternatives = 1;
 
     document.body.onclick = function () {
-        
+
         recognition.start();
         console.log('Ready to receive a color command.');
     }
-    document.getElementById('back-button').onclick = () => {
+    document
+        .getElementById('back-button')
+        .onclick = () => {
         //add delay
-        toggle(overlayWindow);
+        removeClass(overlayWindow, 'animated slideInDown');
+        addClass(overlayWindow, 'animated slideOutUp');
+        setTimeout(()=>{
+            toggle(overlayWindow);
+        }, 1000);
     }
-    // document.querySelector('.iconsHover').onclick = () => {
-        
-    // };
+    // document.querySelector('.iconsHover').onclick = () => { };
 
     recognition.onresult = (event) => {
         // The SpeechRecognitionEvent results property returns a
@@ -121,6 +158,8 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
 
         makeAjaxCall(payload);
         toggle(overlayWindow);
+        removeClass(overlayWindow, 'animated slideOutUp');
+        addClass(overlayWindow, 'animated slideInDown');
         // console.log(`Color recieved: ${speechToText}`); console.log('Confidence: ' +
         // event.results[0][0].confidence);
     };
@@ -1432,8 +1471,7 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         if (suggestions.conditions.length < 2 && suggestions.conditions.length > 0) {
             suggestion1.style.display = 'block';
             suggestion1.innerHTML = suggestions.conditions[0].name;
-        }
-        else if(suggestions.conditions.length >= 2){
+        } else if (suggestions.conditions.length >= 2) {
             suggestion1.style.display = 'block';
             suggestion2.style.display = 'block';
             suggestion1.innerHTML = suggestions.conditions[0].name;
@@ -1441,5 +1479,5 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         }
     };
     //on closing overlay, change display to none for suggestions
-    
+
 })();
