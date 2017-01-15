@@ -82,7 +82,10 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         recognition.start();
         console.log('Ready to receive a color command.');
     }
-
+    document.getElementById('back-button').onclick = () => {
+        //add delay
+        toggle(overlayWindow);
+    }
     // document.querySelector('.iconsHover').onclick = () => {
         
     // };
