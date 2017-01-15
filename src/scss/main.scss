@@ -1,10 +1,10 @@
 @import 'reset';
 @import 'flex';
 @import 'fonts';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 @import url('https://fonts.googleapis.com/css?family=Nunito:600');
 $fonts: 'Nunito',
-'Source Sans Pro',
+'Great Vibes',
 serif;
 #base-wrapper {
     height: 100%;
@@ -32,7 +32,6 @@ serif;
     opacity: 0.85;
     align-items: center;
     justify-content: center;
-
 }
 
 #bottom-wrapper {
@@ -273,10 +272,35 @@ serif;
     letter-spacing: 2.5px;
 }
 
-#hint-text{
+#hint-text {
     margin-top: 10%;
     font-size: 1.5rem;
     color: #fff;
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+#overlay {
+    @include flexbox;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+    flex-direction: column;
+    align-items: center;
+    background: -webkit-linear-gradient(13deg, rgb(235, 231, 232), rgb(255, 255, 255));
+    background: linear-gradient(13deg, rgb(235, 231, 232), rgb(255, 255, 255));
+}
+
+#health-title {
+    color: #d54d7b;
+    font-family: "Great Vibes", cursive;
+    font-size: 10rem;
+    line-height: 120px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    width: 80%;
 }
