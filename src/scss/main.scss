@@ -113,7 +113,7 @@ serif;
     left: 50%;
     transform: translate(-50%, -50%);
     -webkit-transition: opacity 0.5s ease;
-    -moz-transition: aopacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
     transition: opacity 0.5s ease;
 }
 
@@ -284,6 +284,7 @@ serif;
 
 #overlay {
     @include flexbox;
+    display: none;
     position: fixed;
     height: 100%;
     width: 100%;

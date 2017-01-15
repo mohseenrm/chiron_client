@@ -5,8 +5,18 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
 
 (() => {
+    const toggle = (element) => {
+        if(element.style.display !== 'none')
+            element.style.display = 'none';
+        else
+            element.style.display = 'flex';
+    };
+    const overlayWindow = document.getElementById('overlay');
+    toggle(overlayWindow);
+
     const name = 'MoMo';
     console.log(`Hello ${name}!`);
+
     const colors = [
             'aqua',
             'azure',
@@ -68,9 +78,14 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     recognition.maxAlternatives = 1;
 
     document.body.onclick = function () {
+        toggle(overlayWindow);
         recognition.start();
         console.log('Ready to receive a color command.');
     }
+
+    // document.querySelector('.iconsHover').onclick = () => {
+        
+    // };
 
     recognition.onresult = (event) => {
         // The SpeechRecognitionEvent results property returns a
@@ -1422,4 +1437,5 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         }
     };
     //on closing overlay, change display to none for suggestions
+    
 })();
