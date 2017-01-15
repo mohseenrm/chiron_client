@@ -164,6 +164,9 @@ const removeClass = (element, delClassName) => {
         // console.log('Payload data: ' + JSON.stringify(payload));
 
         makeAjaxCall(payload);
+        if(allDiseases.length > 0)
+            makeDoctorCall(allDiseases[0]);
+
         toggle(overlayWindow);
         removeClass(overlayWindow, 'animated slideOutUp');
         addClass(overlayWindow, 'animated slideInDown');
@@ -1463,12 +1466,28 @@ const removeClass = (element, delClassName) => {
             },
             data: JSON.stringify(payload),
             success: function (data) {
-                console.log(data.conditions[0].name);
-                console.log(data);
+                // console.log(data.conditions[0].name);
+                // console.log(data);
                 renderSuggestions(data);
             },
             dataType: 'json'
         });
+    };
+
+    const makeDoctorCall = (disease) => {
+        const url = 'https://api.betterdoctor.com/2016-03-01',
+            user_key = 'user_key=ebd74586afe46d9701cfb232d6cedd53';
+        const completeUrl = `${url}/doctors?query=${disease}&sort=rating-desc&${user_key}`;
+
+        $.ajax({
+            type: 'GET',
+            url: completeUrl,
+            success: (response) => {
+                console.log(response);
+            },
+            dataType: 'json'
+        });
+
     };
     const renderSuggestions = (suggestions) => {
         let suggestion1 = document.querySelector('.suggestion'),

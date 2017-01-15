@@ -353,6 +353,159 @@ serif;
     color: #fff;
     border-color: #d54d7b;
 }
-.button{
+
+.button {
     margin-top: 4vh;
+}
+
+
+/*Profile card*/
+
+.content {
+    @include flexbox;
+    justify-content: center;
+    position: relative;
+    animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
+}
+
+.card {
+    width: 100%;
+    height: 20%;
+    // padding: 20px;
+    border-radius: 3px;
+    background-color: white;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:after {
+    content: '';
+    display: block;
+    width: 180px;
+    height: 300px;
+    background: #5E1623;
+    position: absolute;
+    animation: rotatemagic 0.75s cubic-bezier(0.425, 1.04, 0.47, 1.105) 1s both;
+}
+
+.firstinfo {
+    @include flexbox;
+    flex-direction: row;
+    z-index: 2;
+    position: relative;
+}
+
+.firstinfo img {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+}
+
+// .firstinfo .profileinfo {
+//     // padding: 0px 20px;
+// }
+
+.firstinfo .profileinfo h1 {
+    font-size: 1.8em;
+}
+
+.firstinfo .profileinfo h3 {
+    font-size: 1.2em;
+    color: #B30606;
+    font-style: italic;
+}
+
+.firstinfo .profileinfo p.bio {
+    padding: 10px 0px;
+    color: #5A5A5A;
+    line-height: 1.2;
+    font-style: initial;
+}
+
+@keyframes animatop {
+    0% {
+        opacity: 0;
+        bottom: -600px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+
+@keyframes animainfos {
+    0% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: -42px;
+    }
+}
+
+@keyframes rotatemagic {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+        top: -24px;
+        left: -253px;
+    }
+    100% {
+        transform: rotate(-30deg);
+        top: -24px;
+        left: -78px;
+    }
+}
+
+@-webkit-keyframes animatop {
+    0% {
+        opacity: 0;
+        bottom: -600px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+
+@-webkit-keyframes animainfos {
+    0% {
+        bottom: 10px;
+    }
+    100% {
+        bottom: -42px;
+    }
+}
+
+@-webkit-keyframes rotatemagic {
+    0% {
+        opacity: 0;
+        transform: rotate(0deg);
+        top: -24px;
+        left: -253px;
+    }
+    100% {
+        transform: rotate(-30deg);
+        top: -24px;
+        left: -78px;
+    }
+}
+#image-wrapper{
+    @include flexbox;
+    height: 100%;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+}
+
+#desc-wrapper{
+    @include flexbox;
+    height: 100%;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+}
+.name{
+    font-family: 'Baskerville', serif;
+    font-size: 1.5rem;
 }
