@@ -2,7 +2,7 @@ var cacheName = 'Elixir-cache-1';
 var filesToCache = [
     '/',
     '/index.html',
-    '/dist/css.main.css',
+    '/dist/css/bundle.css',
     '/dist/js/jquery.min.js',
     '/images/logo.svg',
     '/images/logo2.png',

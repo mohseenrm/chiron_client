@@ -37,6 +37,14 @@ const removeClass = (element, delClassName) => {
 };
 
 (() => {
+    if ('serviceWorker' in navigator) {
+        navigator
+            .serviceWorker
+            .register('./sw.js')
+            .then(function () {
+                console.log('Service Worker Registered');
+            });
+    }
     const toggle = (element) => {
         if (element.style.display !== 'none') 
             element.style.display = 'none';
@@ -47,8 +55,7 @@ const removeClass = (element, delClassName) => {
     const overlayWindow = document.getElementById('overlay');
     toggle(overlayWindow);
 
-    // const name = 'MoMo';
-    // console.log(`Hello ${name}!`);
+    // const name = 'MoMo'; console.log(`Hello ${name}!`);
 
     const colors = [
             'aqua',
@@ -121,7 +128,7 @@ const removeClass = (element, delClassName) => {
         //add delay
         removeClass(overlayWindow, 'animated slideInDown');
         addClass(overlayWindow, 'animated slideOutUp');
-        setTimeout(()=>{
+        setTimeout(() => {
             toggle(overlayWindow);
         }, 1000);
     }
