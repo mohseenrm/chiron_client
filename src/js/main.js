@@ -95,11 +95,14 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         console.log(specialKeywords);
         const allDiseases = findPossibleDiseases(specialKeywords);
         console.log('all diseases' + allDiseases);
+        const sids = getSymptomId(allDiseases); 
+        console.log(`sids: ${sids}`);
 
-        console.log(getSymptomId(allDiseases));
+        const payload = generatePayload(sids);
+        console.log(JSON.stringify(payload));
 
         // console.log(`Color recieved: ${speechToText}`);
-        console.log('Confidence: ' + event.results[0][0].confidence);
+        // console.log('Confidence: ' + event.results[0][0].confidence);
     };
 
     recognition.onspeechend = () => {
@@ -1364,5 +1367,24 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         console.log(`final keywords: ${finalKeyWords}`);
         return finalKeyWords;
     }
+
+    const generatePayload = (sids) => {
+        if(sids !== undefined){
+            let payload = {
+                'sex': 'male',
+                'age': '28'
+            };
+            let listOfSymptoms = [];
+            sids.forEach((sid)=>{
+                let temp = {
+                    'choice_id': 'present' 
+                };
+                temp['id'] = sid;
+                listOfSymptoms.push(temp);
+            });
+            payload['evidence'] = listOfSymptoms;
+            return payload;
+        }
+    };
 
 })();
