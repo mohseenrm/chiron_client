@@ -78,7 +78,7 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     recognition.maxAlternatives = 1;
 
     document.body.onclick = function () {
-        toggle(overlayWindow);
+        
         recognition.start();
         console.log('Ready to receive a color command.');
     }
@@ -117,6 +117,7 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         console.log('Payload data: ' + JSON.stringify(payload));
 
         makeAjaxCall(payload);
+        toggle(overlayWindow);
         // console.log(`Color recieved: ${speechToText}`); console.log('Confidence: ' +
         // event.results[0][0].confidence);
     };

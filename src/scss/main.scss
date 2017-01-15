@@ -331,3 +331,28 @@ serif;
     text-shadow: 0 1px 1px #fff;
     width: 85%;
 }
+
+
+/*button styling*/
+
+.button-border-thick.button-plain,
+.button-border-thin.button-plain,
+.button-border.button-plain,
+.button-plain.button-border-thick,
+.button-plain.button-border-thin {
+    color: #d54d7b;
+}
+
+.button-plain {
+    border-color: #d54d7b;
+    background-color: transparent;
+}
+
+.button-border.button-plain:hover {
+    background-color: #d54d7b;
+    color: #fff;
+    border-color: #d54d7b;
+}
+.button{
+    margin-top: 4vh;
+}
