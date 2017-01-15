@@ -1,6 +1,6 @@
 {
   "name": "Chiron",
-  "version": "0.0.82",
+  "version": "2.0.20",
   "description": "Personal healthcare companion",
   "main": "app.js",
   "scripts": {

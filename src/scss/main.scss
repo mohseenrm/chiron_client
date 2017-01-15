@@ -3,7 +3,9 @@
 @import 'fonts';
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 @import url('https://fonts.googleapis.com/css?family=Nunito:600');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
 $fonts: 'Nunito',
+'Libre Baskerville',
 'Great Vibes',
 serif;
 #base-wrapper {
@@ -303,4 +305,28 @@ serif;
     text-align: center;
     text-shadow: 0 1px 1px #fff;
     width: 100%;
+}
+
+.suggestion {
+    display: none;
+    color: #7a7c7f;
+    font-size: 29px;
+    font-family: 'Libre Baskerville', 'Nunito', serif;
+    line-height: 38px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    padding-top: 20px;
+}
+
+#sub-text {
+    font-family: 'Libre Baskerville', 'Nunito', serif;
+    line-height: 45px;
+    // padding-top: 20px;
+    font-style: italic;
+    color: #B6B6B6;
+    font-size: 1.2rem;
+    margin-top: 4px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
+    width: 85%;
 }

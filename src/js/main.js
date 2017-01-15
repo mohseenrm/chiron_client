@@ -95,15 +95,15 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         console.log(specialKeywords);
         const allDiseases = findPossibleDiseases(specialKeywords);
         console.log('all diseases' + allDiseases);
-        const sids = getSymptomId(allDiseases); 
+        const sids = getSymptomId(allDiseases);
         console.log(`sids: ${sids}`);
 
         const payload = generatePayload(sids);
         console.log('Payload data: ' + JSON.stringify(payload));
 
         makeAjaxCall(payload);
-        // console.log(`Color recieved: ${speechToText}`);
-        // console.log('Confidence: ' + event.results[0][0].confidence);
+        // console.log(`Color recieved: ${speechToText}`); console.log('Confidence: ' +
+        // event.results[0][0].confidence);
     };
 
     recognition.onspeechend = () => {
@@ -1315,13 +1315,13 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
 
         var possibleDiseases = [];
 
-        diseases.forEach((disease)=>{
-            keywords.forEach((word)=>{
-                if( disease.includes(word) > 0){
-                    if( possibleDiseases.includes(disease) <= 0 )
+        diseases.forEach((disease) => {
+            keywords.forEach((word) => {
+                if (disease.includes(word) > 0) {
+                    if (possibleDiseases.includes(disease) <= 0) 
                         possibleDiseases.push(disease);
-                }
-            });
+                    }
+                });
         });
         if (possibleDiseases.length > 0) {
             possibleDiseases = possibleDiseases.filter(function (item, index, inputArray) {
@@ -1334,14 +1334,13 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
     function getSymptomId(possibleDiseases) {
         var symptomId = [];
         let i = 0;
-        possibleDiseases.forEach((disease)=>{
-            //if disease == symptom[key]
-            //then push
-            for(var id in symptoms){
-                if(symptoms[id].includes(disease) > 0)
+        possibleDiseases.forEach((disease) => {
+            //if disease == symptom[key] then push
+            for (var id in symptoms) {
+                if (symptoms[id].includes(disease) > 0) 
                     symptomId.push(id);
-            }
-        });
+                }
+            });
         return symptomId;
     }
 
@@ -1351,34 +1350,34 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
         //split space here!
         sentence = sentence.split(' ');
         //filter stop list
-        sentence.forEach((parsed_word)=>{
-            if(stopList.includes(parsed_word) <= 0)
+        sentence.forEach((parsed_word) => {
+            if (stopList.includes(parsed_word) <= 0) 
                 keywords.push(parsed_word)
         });
         //check for diseases
         let finalKeyWords = [];
-        keywords.forEach((word)=>{
-            diseases.forEach((disease)=>{
-                if(disease.includes(word) > 0){
-                    if(finalKeyWords.includes(word) <= 0)
+        keywords.forEach((word) => {
+            diseases.forEach((disease) => {
+                if (disease.includes(word) > 0) {
+                    if (finalKeyWords.includes(word) <= 0) 
                         finalKeyWords.push(word);
-                }      
-            });
+                    }
+                });
         });
         console.log(`final keywords: ${finalKeyWords}`);
         return finalKeyWords;
     }
 
     const generatePayload = (sids) => {
-        if(sids !== undefined){
+        if (sids !== undefined) {
             let payload = {
                 'sex': 'male',
                 'age': '28'
             };
             let listOfSymptoms = [];
-            sids.forEach((sid)=>{
+            sids.forEach((sid) => {
                 let temp = {
-                    'choice_id': 'present' 
+                    'choice_id': 'present'
                 };
                 temp['id'] = sid;
                 listOfSymptoms.push(temp);
@@ -1398,17 +1397,29 @@ const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition,
                 "Content-Type": "application/json"
             },
             data: JSON.stringify(payload),
-            success: function (data){
+            success: function (data) {
                 console.log(data.conditions[0].name);
                 console.log(data);
-                // for(var i=0;i<data.length;i++)
-                // {
-                //   var obj = new Object();
-                //   obj = data[i].conditions[0].name;
-                //   console.log(obj);
-                // }
+                renderSuggestions(data);
             },
             dataType: 'json'
         });
     };
+    const renderSuggestions = (suggestions) => {
+        let suggestion1 = document.querySelector('.suggestion'),
+            suggestion2 = document.querySelector('.suggestion + span');
+
+        //if length < 2 -> update only one
+        if (suggestions.conditions.length < 2 && suggestions.conditions.length > 0) {
+            suggestion1.style.display = 'block';
+            suggestion1.innerHTML = suggestions.conditions[0].name;
+        }
+        else if(suggestions.conditions.length >= 2){
+            suggestion1.style.display = 'block';
+            suggestion2.style.display = 'block';
+            suggestion1.innerHTML = suggestions.conditions[0].name;
+            suggestion2.innerHTML = suggestions.conditions[1].name;
+        }
+    };
+    //on closing overlay, change display to none for suggestions
 })();
