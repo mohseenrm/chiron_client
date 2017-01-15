@@ -36,6 +36,12 @@ const removeClass = (element, delClassName) => {
     return;
 };
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+};
+
 (() => {
     if ('serviceWorker' in navigator) {
         navigator
@@ -125,7 +131,14 @@ const removeClass = (element, delClassName) => {
     document
         .getElementById('back-button')
         .onclick = () => {
-        //add delay
+
+        document
+            .querySelector('.suggestion')
+            .innerHTML = '';
+        document
+            .querySelector('.suggestion + span')
+            .innerHTML = '';
+
         removeClass(overlayWindow, 'animated slideInDown');
         addClass(overlayWindow, 'animated slideOutUp');
         setTimeout(() => {
@@ -164,9 +177,9 @@ const removeClass = (element, delClassName) => {
         // console.log('Payload data: ' + JSON.stringify(payload));
 
         makeAjaxCall(payload);
-        if(allDiseases.length > 0)
+        if (allDiseases.length > 0) 
             makeDoctorCall(allDiseases[0]);
-
+        
         toggle(overlayWindow);
         removeClass(overlayWindow, 'animated slideOutUp');
         addClass(overlayWindow, 'animated slideInDown');
@@ -1466,8 +1479,7 @@ const removeClass = (element, delClassName) => {
             },
             data: JSON.stringify(payload),
             success: function (data) {
-                // console.log(data.conditions[0].name);
-                // console.log(data);
+                // console.log(data.conditions[0].name); console.log(data);
                 renderSuggestions(data);
             },
             dataType: 'json'
@@ -1479,16 +1491,39 @@ const removeClass = (element, delClassName) => {
             user_key = 'user_key=ebd74586afe46d9701cfb232d6cedd53';
         const completeUrl = `${url}/doctors?query=${disease}&sort=rating-desc&${user_key}`;
 
-        $.ajax({
-            type: 'GET',
-            url: completeUrl,
-            success: (response) => {
-                console.log(response);
-            },
-            dataType: 'json'
+        
+
+        let firstPromise = new Promise((resolve, reject)=>{
+            $.ajax({
+                type: 'GET',
+                url: completeUrl,
+                success: (response) => {
+                    console.log(response);
+                    resolve(response);
+                },
+                dataType: 'json'
+            });
         });
+        firstPromise.then((response)=>{
+            renderDoctor(response.data);
+        });
+    };
+
+    
+    const renderDoctor = (docs) => {
+        // const docIndex = getRandomInt(0, docs.length + 1);
+        const docIndex = 0;
+        const doc = docs[docIndex];
+        const name = `${doc.profile.first_name} ${doc.profile.last_name}`;
+
+        const speciality = doc.specialties[0].actor;
+
+        document.querySelector('.name').innerHTML = name;
+        document.querySelector('.speciality').innerHTML = speciality;
+        document.getElementById('profile-photo').src = doc.profile.image_url;
 
     };
+
     const renderSuggestions = (suggestions) => {
         let suggestion1 = document.querySelector('.suggestion'),
             suggestion2 = document.querySelector('.suggestion + span');

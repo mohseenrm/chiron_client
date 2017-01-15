@@ -283,9 +283,11 @@ serif;
 }
 
 #overlay {
+    overflow: auto;
     @include flexbox;
     display: none;
     position: fixed;
+
     height: 100%;
     width: 100%;
     z-index: 50;
@@ -298,11 +300,11 @@ serif;
 #health-title {
     color: #d54d7b;
     font-family: "Great Vibes", cursive;
-    font-size: 6.4rem;
+    font-size: 5.4rem;
     line-height: 120px;
     font-weight: normal;
     margin-bottom: 0px;
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
     text-shadow: 0 1px 1px #fff;
     width: 100%;
@@ -316,7 +318,7 @@ serif;
     line-height: 38px;
     text-align: center;
     text-shadow: 0 1px 1px #fff;
-    padding-top: 20px;
+    padding-top: 15px;
 }
 
 #sub-text {
@@ -366,6 +368,8 @@ serif;
     justify-content: center;
     position: relative;
     animation: animatop 0.9s cubic-bezier(0.425, 1.14, 0.47, 1.125) forwards;
+    margin-top: 8%;
+    margin-bottom: 4%;
 }
 
 .card {
