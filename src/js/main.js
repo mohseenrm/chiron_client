@@ -47,8 +47,8 @@ const removeClass = (element, delClassName) => {
     const overlayWindow = document.getElementById('overlay');
     toggle(overlayWindow);
 
-    const name = 'MoMo';
-    console.log(`Hello ${name}!`);
+    // const name = 'MoMo';
+    // console.log(`Hello ${name}!`);
 
     const colors = [
             'aqua',
@@ -113,7 +113,7 @@ const removeClass = (element, delClassName) => {
     document.body.onclick = function () {
 
         recognition.start();
-        console.log('Ready to receive a color command.');
+        console.log('Ready to receive a command.');
     }
     document
         .getElementById('back-button')
@@ -147,14 +147,14 @@ const removeClass = (element, delClassName) => {
 
         // Insert whatever words come from voice recognition implementation
         const specialKeywords = extractKeyword(speechToText);
-        console.log(specialKeywords);
+        // console.log(specialKeywords);
         const allDiseases = findPossibleDiseases(specialKeywords);
-        console.log('all diseases' + allDiseases);
+        // console.log('all diseases' + allDiseases);
         const sids = getSymptomId(allDiseases);
-        console.log(`sids: ${sids}`);
+        // console.log(`sids: ${sids}`);
 
         const payload = generatePayload(sids);
-        console.log('Payload data: ' + JSON.stringify(payload));
+        // console.log('Payload data: ' + JSON.stringify(payload));
 
         makeAjaxCall(payload);
         toggle(overlayWindow);
@@ -1422,7 +1422,7 @@ const removeClass = (element, delClassName) => {
                     }
                 });
         });
-        console.log(`final keywords: ${finalKeyWords}`);
+        // console.log(`final keywords: ${finalKeyWords}`);
         return finalKeyWords;
     }
 
