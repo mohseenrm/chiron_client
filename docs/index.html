@@ -1,0 +1,68 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Elixir : Healthcare Assistance</title>
+        <!--<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mohseenrm/chiron_client/master/dist/css/main.css">-->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="dist/css/bundle.css">
+        <link rel="manifest" href="manifest.json">
+
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="chiron">
+        <meta name="apple-mobile-web-app-title" content="chiron">
+        <meta name="theme-color" content="#060608">
+        <meta name="msapplication-navbutton-color" content="#060608">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-starturl" content="/index.html">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="icon" type="image/png" sizes="156x156" href="images/logo2.png">
+        <link rel="apple-touch-icon" type="image/png" sizes="156x156" href="images/logo2.png">
+        <script src="dist/js/jquery.min.js"></script>
+    </head>
+    <body>
+        <div id="overlay">
+            <span id="health-title">Take Care</span>
+            <span id="sub-text">You Might be Suffering from</span>
+            <span class="suggestion"></span>
+            <span class="suggestion"></span>
+
+            <div class="content">
+                <div class="card">
+                    <div class="firstinfo">
+                        <div id="image-wrapper">
+                            <img id="profile-photo" src="https://s3.amazonaws.com/uifaces/faces/twitter/mrvanz/128.jpg"/>
+                        </div>
+                        <div id="desc-wrapper">
+                            <div class="profileinfo">
+                                <h1 class="name"></h1>
+                                <h3 class="speciality"></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="button button-large button-plain button-border button-circle" id="back-button">
+                <i class="fa fa-reply"></i>
+            </button>
+        </div>
+        <div id="mother-wrapper">
+            <div id="logo-wrapper">
+                <h1 id="header">Elixir</h1>
+            </div>
+            <div id="bottom-wrapper">
+                <div class="iconsHover">
+                    <div class="iconsHoverBorder"></div> 
+                    <div class="iconsBg"></div>
+                    <div class="iconsHoverBg"></div>
+                    <div class="iconCircleInt"></div>
+                    <div class="iconsHoverFont"><i class="ico2 fa fa-heartbeat fa-2x fa-fw" aria-hidden="true"></i> </div>                   
+                </div>
+                <span id="hint-text"></span>
+            </div>
+        </div>
+        <!--<script src="https://cdn.rawgit.com/mohseenrm/chiron_client/master/dist/js/main.min.js"></script>-->
+        <script src="dist/js/main.min.js"></script>
+</html>
