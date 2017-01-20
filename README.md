@@ -1,2 +1,3 @@
-# front_end_template
-Template for front end development
+# Elixir - Personal Health Care Assistant
+>This is the repo for the Progressive Web App version of Elixir
+>Mohseen
